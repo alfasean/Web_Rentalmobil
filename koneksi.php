@@ -1,15 +1,11 @@
 <?php
 date_default_timezone_set('Asia/Jakarta');
 $now = date("Y-m-d H:i:s");
-/**
- * Database connection setup
- */
+
  if (!$connection = new Mysqli("localhost", "root", "", "rental_mobil")) {
   echo "<h3>ERROR: Koneksi database gagal!</h3>";
 }
-/**
- * Page initialize
- */
+
 if (isset($_GET["page"])) {
   $_PAGE = $_GET["page"];
   $_ADMINPAGE = $_GET["page"];
@@ -39,6 +35,7 @@ function adminPage($page) {
  * @param message, redirection
  * @return alert notify
  */
+
 function alert($msg, $to = null) {
   $to = ($to) ? $to : $_SERVER["PHP_SELF"];
   return "<script>alert('{$msg}');window.location='{$to}';</script>";
@@ -66,24 +63,3 @@ while ($data = $query->fetch_assoc()) {
   }
 }
 
-// Perhitungan deneda otomatis CONTOH : ADDDATE('2017-01-01', INTERVAL 1 DAY)
-$sql = "SELECT
-          a.id_transaksi,
-          (
-            TIMESTAMPDIFF(
-              HOUR,
-              ADDDATE(a.tgl_ambil, INTERVAL a.lama DAY),
-              a.tgl_kembali
-            )
-          ) AS terlambat,
-          35000 * (TIMESTAMPDIFF(HOUR, ADDDATE(a.tgl_ambil, INTERVAL a.lama DAY), a.tgl_kembali)) AS denda
-        FROM transaksi a
-        WHERE a.tgl_kembali <> ''";
-$query = $connection->query($sql);
-while ($a = $query->fetch_assoc()) { //
-  if ($a["denda"] > 0) { //
-      if (!$connection->query("UPDATE transaksi SET denda=$a[denda] WHERE id_transaksi=$a[id_transaksi]")) {
-        die("Hitung denda otomatis gagal.");
-      }
-  }
-}

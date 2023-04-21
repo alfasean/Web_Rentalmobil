@@ -17,16 +17,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 <div class="panel panel-info">
-    <div class="panel-heading"><h3 class="text-center">Perpanjang Sewa</h3></div>
+    <div class="panel-heading">
+        <h3 class="text-center">Perpanjang Sewa</h3>
+    </div>
     <div class="panel-body">
         <form action="<?=$_SERVER['REQUEST_URI']?>" method="POST">
             <div class="form-group">
                 <label for="lama">Lama perpanjang</label>
-								<select class="form-control" name="lama">
-									<?php for ($i=1; $i<=7; $i++): ?>
-										<option value="<?=$i?>"><?=$i?> Hari</option>
-									<?php endfor; ?>
-								</select>
+                <select class="form-control" name="lama">
+                    <?php for ($i=1; $i<=7; $i++): ?>
+                    <option value="<?=$i?>"><?=$i?> Hari</option>
+                    <?php endfor; ?>
+                </select>
             </div>
             <button type="submit" class="btn btn-info btn-block">Perpanjang</button>
             <a href="?page=profil" type="submit" class="btn btn-warning btn-block">Batal</a>

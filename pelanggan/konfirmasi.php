@@ -19,7 +19,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 <div class="panel panel-info">
-    <div class="panel-heading"><h3 class="text-center">Konfirmasi Pembayaran</h3></div>
+    <div class="panel-heading">
+        <h3 class="text-center">Konfirmasi Pembayaran</h3>
+    </div>
     <div class="panel-body">
         <form action="<?=$_SERVER['REQUEST_URI']?>" method="POST" enctype="multipart/form-data">
             <div class="form-group">

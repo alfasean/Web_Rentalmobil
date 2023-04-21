@@ -1,13 +1,13 @@
 <style>
 	label {
-            color: #000 !important;
-        }
+		color: #000 !important;
+	}
 
 	th {
 		color: #000 !important;
 	}
 
-	td{
+	td {
 		color: #000 !important;
 	}
 </style>
@@ -65,133 +65,151 @@ if (isset($_GET['action']) AND $_GET['action'] == 'delete') {
 ?>
 <div class="row">
 	<div class="col-md-4 hidden-print">
-	    <div class="panel panel-<?= ($update) ? "warning" : "info" ?>">
-	        <div class="panel-heading"><h3 class="text-center"><?= ($update) ? "EDIT" : "TAMBAH" ?></h3></div>
-	        <div class="panel-body">
-	            <form action="<?=$_SERVER['REQUEST_URI']?>" method="POST" enctype="multipart/form-data">
-	                <div class="form-group">
-	                    <label for="id_jenis">Jenis</label>
-											<select class="form-control" name="id_jenis">
-												<option>---</option>
-												<?php $query = $connection->query("SELECT * FROM jenis"); while ($data = $query->fetch_assoc()): ?>
-													<option value="<?=$data["id_jenis"]?>" <?= (!$update) ?: (($row["id_jenis"] != $data["id_jenis"]) ?: 'selected="on"') ?>><?=$data["nama"]?></option>
-												<?php endwhile; ?>
-											</select>
-	                </div>
-	                <div class="form-group">
-	                    <label for="no_mobil">No Mobil</label>
-	                    <input type="text" name="no_mobil" class="form-control" <?= (!$update) ?: 'value="'.$row["no_mobil"].'"' ?>>
-	                </div>
-	                <div class="form-group">
-	                    <label for="nama_mobil">Nama Mobil</label>
-	                    <input type="text" name="nama_mobil" class="form-control" <?= (!$update) ?: 'value="'.$row["nama_mobil"].'"' ?>>
-	                </div>
-	                <div class="form-group">
-	                    <label for="merk">Merk</label>
-	                    <input type="text" name="merk" class="form-control" <?= (!$update) ?: 'value="'.$row["merk"].'"' ?>>
-	                </div>
-	                <div class="form-group">
-	                    <label for="gambar">Gambar</label>
-	                    <input type="file" name="gambar" class="form-control">
-			                <?php if ($update): ?>
-												<span class="help-block">*) Kosongkan jika tidak diubah</span>
-											<?php endif; ?>
-	                </div>
-	                <div class="form-group">
-	                    <label for="harga">Harga Sewa</label>
-	                    <input type="text" name="harga" class="form-control" <?= (!$update) ?: 'value="'.$row["harga"].'"' ?>>
-	                </div>
-	                <div class="form-group">
-	                    <label for="status">Status</label>
-											<select class="form-control" name="status">
-												<option>---</option>
-												<option value="0" <?= (!$update) ?: (($row["status"] != 0) ?: 'selected="on"') ?>>Tidak Tersedia</option>
-												<option value="1" <?= (!$update) ?: (($row["status"] != 1) ?: 'selected="on"') ?>>Tersedia</option>
-											</select>
-	                </div>
-	                <button type="submit" class="btn btn-<?= ($update) ? "warning" : "info" ?> btn-block">Simpan</button>
-	                <?php if ($update): ?>
-										<a href="?page=mobil" class="btn btn-info btn-block">Batal</a>
-									<?php endif; ?>
-	            </form>
-	        </div>
-	    </div>
+		<div class="panel panel-<?= ($update) ? "warning" : "info" ?>">
+			<div class="panel-heading">
+				<h3 class="text-center"><?= ($update) ? "EDIT" : "TAMBAH" ?></h3>
+			</div>
+			<div class="panel-body">
+				<form action="<?=$_SERVER['REQUEST_URI']?>" method="POST" enctype="multipart/form-data">
+					<div class="form-group">
+						<label for="id_jenis">Jenis</label>
+						<select class="form-control" name="id_jenis">
+							<option>---</option>
+							<?php $query = $connection->query("SELECT * FROM jenis"); while ($data = $query->fetch_assoc()): ?>
+							<option value="<?=$data["id_jenis"]?>"
+								<?= (!$update) ?: (($row["id_jenis"] != $data["id_jenis"]) ?: 'selected="on"') ?>>
+								<?=$data["nama"]?></option>
+							<?php endwhile; ?>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="no_mobil">No Mobil</label>
+						<input type="text" name="no_mobil" class="form-control"
+							<?= (!$update) ?: 'value="'.$row["no_mobil"].'"' ?>>
+					</div>
+					<div class="form-group">
+						<label for="nama_mobil">Nama Mobil</label>
+						<input type="text" name="nama_mobil" class="form-control"
+							<?= (!$update) ?: 'value="'.$row["nama_mobil"].'"' ?>>
+					</div>
+					<div class="form-group">
+						<label for="merk">Merk</label>
+						<input type="text" name="merk" class="form-control"
+							<?= (!$update) ?: 'value="'.$row["merk"].'"' ?>>
+					</div>
+					<div class="form-group">
+						<label for="gambar">Gambar</label>
+						<input type="file" name="gambar" class="form-control">
+						<?php if ($update): ?>
+						<span class="help-block">*) Kosongkan jika tidak diubah</span>
+						<?php endif; ?>
+					</div>
+					<div class="form-group">
+						<label for="harga">Harga Sewa</label>
+						<input type="text" name="harga" class="form-control"
+							<?= (!$update) ?: 'value="'.$row["harga"].'"' ?>>
+					</div>
+					<div class="form-group">
+						<label for="status">Status</label>
+						<select class="form-control" name="status">
+							<option>---</option>
+							<option value="0" <?= (!$update) ?: (($row["status"] != 0) ?: 'selected="on"') ?>>Tidak
+								Tersedia</option>
+							<option value="1" <?= (!$update) ?: (($row["status"] != 1) ?: 'selected="on"') ?>>Tersedia
+							</option>
+						</select>
+					</div>
+					<button type="submit"
+						class="btn btn-<?= ($update) ? "warning" : "info" ?> btn-block">Simpan</button>
+					<?php if ($update): ?>
+					<a href="?page=mobil" class="btn btn-info btn-block">Batal</a>
+					<?php endif; ?>
+				</form>
+			</div>
+		</div>
 	</div>
 	<div class="col-md-8">
-	    <div class="panel panel-info">
-	        <div class="panel-heading"><h3 class="text-center">DAFTAR MOBIL</h3></div>
-	        <div class="panel-body">
-	            <table class="table table-condensed">
-	                <thead>
-	                    <tr>
-	                        <th>No</th>
-	                        <th>Jenis</th>
-	                        <th>No Mobil</th>
-	                        <th>Nama</th>
-	                        <th>Merk</th>
-	                        <th>Harga</th>
-	                        <th>Status</th>
-	                        <th class="hidden-print"></th>
-	                    </tr>
-	                </thead>
-	                <tbody>
-	                    <?php $no = 1; ?>
-	                    <?php if ($query = $connection->query("SELECT * FROM mobil JOIN jenis USING(id_jenis)")): ?>
-	                        <?php while($row = $query->fetch_assoc()): ?>
-	                        <tr>
-	                            <td><?=$no++?></td>
-															<td><?=$row['nama']?></td>
-															<td><?=$row['no_mobil']?></td>
-															<td><?=$row['nama_mobil']?></td>
-															<td><?=$row['merk']?></td>
-															<td><?=$row['harga']?></td>
-															<td><span class="label label-<?=($row['status']) ? "success" : "danger" ?>"><?=($row['status']) ? "Tersedia" : "Tidak Tersedia" ?></span></td>
-	                            <td class="hidden-print">
-	                                <div class="btn-group">
-	                                    <a href="../assets/img/mobil/<?=$row['gambar']?>" class="btn btn-info btn-xs fancybox">Lihat</a>
-	                                    <a href="?page=mobil&action=update&key=<?=$row['id_mobil']?>" class="btn btn-warning btn-xs">Edit</a>
-	                                    <a href="?page=mobil&action=delete&key=<?=$row['id_mobil']?>" class="btn btn-danger btn-xs">Hapus</a>
-	                                </div>
-	                            </td>
-	                        </tr>
-	                        <?php endwhile ?>
-	                    <?php endif ?>
-	                </tbody>
-	            </table>
-	        </div>
-			    <div class="panel-footer hidden-print">
-			        <a onClick="window.print();return false" class="btn btn-primary">Print</a>
-			    </div>
-	    </div>
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="text-center">DAFTAR MOBIL</h3>
+			</div>
+			<div class="panel-body">
+				<table class="table table-condensed">
+					<thead>
+						<tr>
+							<th>No</th>
+							<th>Jenis</th>
+							<th>No Mobil</th>
+							<th>Nama</th>
+							<th>Merk</th>
+							<th>Harga</th>
+							<th>Status</th>
+							<th class="hidden-print"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php $no = 1; ?>
+						<?php if ($query = $connection->query("SELECT * FROM mobil JOIN jenis USING(id_jenis)")): ?>
+						<?php while($row = $query->fetch_assoc()): ?>
+						<tr>
+							<td><?=$no++?></td>
+							<td><?=$row['nama']?></td>
+							<td><?=$row['no_mobil']?></td>
+							<td><?=$row['nama_mobil']?></td>
+							<td><?=$row['merk']?></td>
+							<td><?=$row['harga']?></td>
+							<td><span
+									class="label label-<?=($row['status']) ? "success" : "danger" ?>"><?=($row['status']) ? "Tersedia" : "Tidak Tersedia" ?></span>
+							</td>
+							<td class="hidden-print">
+								<div class="btn-group">
+									<a href="../assets/img/mobil/<?=$row['gambar']?>"
+										class="btn btn-info btn-xs fancybox">Lihat</a>
+									<a href="?page=mobil&action=update&key=<?=$row['id_mobil']?>"
+										class="btn btn-warning btn-xs">Edit</a>
+									<a href="?page=mobil&action=delete&key=<?=$row['id_mobil']?>"
+										class="btn btn-danger btn-xs">Hapus</a>
+								</div>
+							</td>
+						</tr>
+						<?php endwhile ?>
+						<?php endif ?>
+					</tbody>
+				</table>
+			</div>
+			<div class="panel-footer hidden-print">
+				<a onClick="window.print();return false" class="btn btn-primary">Print</a>
+			</div>
+		</div>
 	</div>
 </div>
 
 <script type="text/javascript">
-$(document).ready(function(){
-	$(".fancybox").fancybox({
-		openEffect  : 'none',
-		closeEffect : 'none',
-		iframe : {
-			preload: false
-		}
+	$(document).ready(function () {
+		$(".fancybox").fancybox({
+			openEffect: 'none',
+			closeEffect: 'none',
+			iframe: {
+				preload: false
+			}
+		});
+		$(".various").fancybox({
+			maxWidth: 800,
+			maxHeight: 600,
+			fitToView: false,
+			width: '70%',
+			height: '70%',
+			autoSize: false,
+			closeClick: false,
+			openEffect: 'none',
+			closeEffect: 'none'
+		});
+		$('.fancybox-media').fancybox({
+			openEffect: 'none',
+			closeEffect: 'none',
+			helpers: {
+				media: {}
+			}
+		});
 	});
-	$(".various").fancybox({
-		maxWidth    : 800,
-		maxHeight    : 600,
-		fitToView    : false,
-		width        : '70%',
-		height        : '70%',
-		autoSize    : false,
-		closeClick    : false,
-		openEffect    : 'none',
-		closeEffect    : 'none'
-	});
-	$('.fancybox-media').fancybox({
-		openEffect  : 'none',
-		closeEffect : 'none',
-		helpers : {
-			media : {}
-		}
-	});
-});
 </script>

@@ -12,20 +12,9 @@ if (!isset($_SESSION["admin"])) {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Fitrah Rental Car</title>
-  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <script src="../assets/js/jquery.min.js"></script>
-  <!-- Optional, Add fancyBox for media, buttons, thumbs -->
-  <link rel="stylesheet" href="../assets/fancybox/source/jquery.fancybox.css" type="text/css" media="screen" />
-  <link rel="stylesheet" href="../assets/fancybox/source/helpers/jquery.fancybox-buttons.css" type="text/css"
-    media="screen" />
-  <link rel="stylesheet" href="../assets/fancybox/source/helpers/jquery.fancybox-thumbs.css" type="text/css"
-    media="screen" />
-  <script type="text/javascript" src="../assets/fancybox/source/jquery.fancybox.pack.js"></script>
-  <script type="text/javascript" src="../assets/fancybox/source/helpers/jquery.fancybox-buttons.js"></script>
-  <script type="text/javascript" src="../assets/fancybox/source/helpers/jquery.fancybox-media.js"></script>
-  <script type="text/javascript" src="../assets/fancybox/source/helpers/jquery.fancybox-thumbs.js"></script>
-  <!-- Optional, Add mousewheel effect -->
-  <script type="text/javascript" src="../assets/fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
@@ -40,37 +29,33 @@ if (!isset($_SESSION["admin"])) {
 
     .navbar {
       top: 0 !important;
-      position:fixed;
+      position: fixed;
       width: 100%;
       z-index: 1;
     }
-    .navbar .container{
-      padding:5px
+
+    .navbar .container {
+      padding: 5px
     }
-
-    footer {
-  text-align: center;
-  padding: 3px;
-  background-color: #D8D8D8;
-  color: #000;
-  width: 100%;
-  position: fixed !important;
-  left: 0 !important;
-  bottom: 0 !important;
-}
-footer p {
-  font-size: 16px !important  ;
-}
-
   </style>
 </head>
 
 <body>
   <nav class="navbar navbar-default">
     <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
-        <a class="navbar-brand" href="#">ADMIN | FITRAH RENTAL CAR</a>
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+          data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="?page=home">Fitrah Rental Car</a>
       </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
@@ -82,6 +67,7 @@ footer p {
               <li><a href="?page=mobil">Mobil</a></li>
               <li><a href="?page=pelanggan">Pelanggan</a></li>
             </ul>
+            
           </li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
@@ -106,8 +92,9 @@ footer p {
       </div>
     </div>
   </div>
-  <footer><p style="padding: 20px;">Copyright © 2023 Fitrah Car Rental . All Rights Reserved.</footer>
-  <script src="../assets/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+  </script>
 </body>
 
 </html>

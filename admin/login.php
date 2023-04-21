@@ -20,11 +20,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>mobil</title>
-    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <title>Fitrah Rental Car | Login Admin</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <style>
         html,
         body {
@@ -34,8 +36,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             width: 100%;
             place-items: center;
         }
-        
-       .panel-heading {
+
+        .panel-heading {
             background-color: #fff !important;
             color: #000 !important;
         }
@@ -45,22 +47,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="row">
             <div class="col-md-4"></div>
             <div class="col-md-4">
                 <div class="panel panel-info">
-                    <div class="panel-heading"><h3 class="text-center">ADMINISTRATOR</h3></div>
+                    <div class="panel-heading">
+                        <h3 class="text-center">ADMINISTRATOR</h3>
+                    </div>
                     <div class="panel-body">
                         <form action="<?=$_SERVER['REQUEST_URI']?>" method="POST">
                             <div class="form-group">
                                 <label for="username">Username</label>
-                                <input type="text" name="username" class="form-control" id="username" placeholder="username" autofocus="on">
+                                <input type="text" name="username" class="form-control" id="username"
+                                    placeholder="username" autofocus="on">
                             </div>
                             <div class="form-group">
                                 <label for="password">Password</label>
-                                <input type="password" name="password" class="form-control" id="password" placeholder="Password">
+                                <input type="password" name="password" class="form-control" id="password"
+                                    placeholder="Password">
                             </div>
                             <button type="submit" class="btn btn-info btn-block">Login</button>
                         </form>
@@ -70,5 +77,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <div class="col-md-4"></div>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+  </script>
 </body>
+
 </html>

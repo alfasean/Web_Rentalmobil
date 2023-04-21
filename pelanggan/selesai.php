@@ -46,26 +46,30 @@ $idtransaksi = $connection->insert_id;
 
 <style>
     label {
-            color: #000 !important;
-        }
+        color: #000 !important;
+    }
 
-	th {
-		color: #000 !important;
-	}
+    th {
+        color: #000 !important;
+    }
 
-	td{
-		color: #000 !important;
-	}
-	p{
-		color: #000 !important;
-	}
-	h3{
-		color: #000 !important;
-	}
+    td {
+        color: #000 !important;
+    }
+
+    p {
+        color: #000 !important;
+    }
+
+    h3 {
+        color: #000 !important;
+    }
 </style>
 
 <div class="panel panel-info">
-    <div class="panel-heading"><h3 class="text-center">Transaksi Berhasil</h3></div>
+    <div class="panel-heading">
+        <h3 class="text-center">Transaksi Berhasil</h3>
+    </div>
     <div class="panel-body">
         <table class="table table-bordered">
             <thead>
@@ -81,7 +85,7 @@ $idtransaksi = $connection->insert_id;
                     <th>Harga Sewa</th>
                     <td>: Rp.<?=number_format($data["harga"])?>,-/hari</td>
                 </tr>
-                
+
                 <tr>
                     <th>Lama Sewa</th>
                     <td>: <?=$_POST["lama"]?> hari</td>
@@ -109,12 +113,15 @@ $idtransaksi = $connection->insert_id;
         <p>
             Transaksi pembelian anda telah berhasil<br>
             Silahkan anda membayar tagihan anda dengan cara transfer via Bank BRI di nomor Rekening : <br>
-            <strong>(0986-01-025805-53-8 a/n SEWA mobil)</strong> untuk menyelesaikan pembayaran. dan untuk uang muka minimal setengah dari harga sewa.
+            <strong>(0986-01-025805-53-8 a/n SEWA mobil)</strong> untuk menyelesaikan pembayaran. dan untuk uang muka
+            minimal setengah dari harga sewa.
         </p>
         <p>
-            Jika anda sudah melakukan transfer silahkan anda melakukan konfirmasi pembayaran dengan mengunjungi halaman profil akun anda lalu tekan tombol. <i><b>Lihat Profil</b></i>.
+            Jika anda sudah melakukan transfer silahkan anda melakukan konfirmasi pembayaran dengan mengunjungi halaman
+            profil akun anda lalu tekan tombol. <i><b>Lihat Profil</b></i>.
         </p>
-        <p> Batas Konfirmasi 3 jam, jika lebih dari 3 jam anda tidak melakukan konfirmasi maka sistem akan membatalkan pesanan secara otomatis.
+        <p> Batas Konfirmasi 3 jam, jika lebih dari 3 jam anda tidak melakukan konfirmasi maka sistem akan membatalkan
+            pesanan secara otomatis.
         </p>
     </div>
     <div class="panel-footer">

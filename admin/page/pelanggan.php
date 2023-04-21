@@ -30,108 +30,121 @@ if (isset($_GET['action']) AND $_GET['action'] == 'delete') {
 
 <style>
 	label {
-            color: #000 !important;
-        }
+		color: #000 !important;
+	}
 
 	th {
 		color: #000 !important;
 	}
 
-	td{
+	td {
 		color: #000 !important;
 	}
 </style>
 
 <div class="row">
-<div class="col-md-4 hidden-print">
-	
-	    <div class="panel panel-<?= ($update) ? "warning" : "info" ?>">
-	        <div class="panel-heading"><h3 class="text-center"><?= ($update) ? "EDIT" : "TAMBAH" ?></h3></div>
-	        <div class="panel-body">
-	            <form action="<?=$_SERVER['REQUEST_URI']?>" method="POST">
-	                <div class="form-group">
-	                    <label for="nama">Nama</label>
-	                    <input type="text" name="nama" class="form-control" <?= (!$update) ?: 'value="'.$row["nama"].'"' ?>>
-	                </div>
-	                <div class="form-group">
-	                    <label for="nama">No KTP</label>
-	                    <input type="text" name="no_ktp" class="form-control" <?= (!$update) ?: 'value="'.$row["no_ktp"].'"' ?>>
-	                </div>
-	                <div class="form-group">
-	                    <label for="no_telp">Telp</label>
-	                    <input type="text" name="no_telp" class="form-control" <?= (!$update) ?: 'value="'.$row["no_telp"].'"' ?>>
-	                </div>
-	                <div class="form-group">
-	                    <label for="email">Email</label>
-	                    <input type="text" name="email" class="form-control" <?= (!$update) ?: 'value="'.$row["email"].'"' ?>>
-	                </div>
-	                <div class="form-group">
-	                    <label for="alamat">Alamat</label>
-	                    <input type="text" name="alamat" class="form-control" <?= (!$update) ?: 'value="'.$row["alamat"].'"' ?>>
-	                </div>
-	                <div class="form-group">
-	                    <label for="username">Username</label>
-	                    <input type="text" name="username" class="form-control" <?= (!$update) ?: 'value="'.$row["username"].'"' ?>>
-	                </div>
-	                <div class="form-group">
-	                    <label for="password">Password</label>
-	                    <input type="password" name="password" class="form-control">
-			                <?php if ($update): ?>
-												<span class="help-block">*) Kosongkan jika tidak diubah</span>
-											<?php endif; ?>
-	                </div>
-	                <button type="submit" class="btn btn-<?= ($update) ? "warning" : "info" ?> btn-block">Simpan</button>
-	                <?php if ($update): ?>
-										<a href="?page=pelanggan" class="btn btn-info btn-block">Batal</a>
-									<?php endif; ?>
-	            </form>
-	        </div>
-	    </div>
+	<div class="col-md-4 hidden-print">
+
+		<div class="panel panel-<?= ($update) ? "warning" : "info" ?>">
+			<div class="panel-heading">
+				<h3 class="text-center"><?= ($update) ? "EDIT" : "TAMBAH" ?></h3>
+			</div>
+			<div class="panel-body">
+				<form action="<?=$_SERVER['REQUEST_URI']?>" method="POST">
+					<div class="form-group">
+						<label for="nama">Nama</label>
+						<input type="text" name="nama" class="form-control"
+							<?= (!$update) ?: 'value="'.$row["nama"].'"' ?>>
+					</div>
+					<div class="form-group">
+						<label for="nama">No KTP</label>
+						<input type="text" name="no_ktp" class="form-control"
+							<?= (!$update) ?: 'value="'.$row["no_ktp"].'"' ?>>
+					</div>
+					<div class="form-group">
+						<label for="no_telp">Telp</label>
+						<input type="text" name="no_telp" class="form-control"
+							<?= (!$update) ?: 'value="'.$row["no_telp"].'"' ?>>
+					</div>
+					<div class="form-group">
+						<label for="email">Email</label>
+						<input type="text" name="email" class="form-control"
+							<?= (!$update) ?: 'value="'.$row["email"].'"' ?>>
+					</div>
+					<div class="form-group">
+						<label for="alamat">Alamat</label>
+						<input type="text" name="alamat" class="form-control"
+							<?= (!$update) ?: 'value="'.$row["alamat"].'"' ?>>
+					</div>
+					<div class="form-group">
+						<label for="username">Username</label>
+						<input type="text" name="username" class="form-control"
+							<?= (!$update) ?: 'value="'.$row["username"].'"' ?>>
+					</div>
+					<div class="form-group">
+						<label for="password">Password</label>
+						<input type="password" name="password" class="form-control">
+						<?php if ($update): ?>
+						<span class="help-block">*) Kosongkan jika tidak diubah</span>
+						<?php endif; ?>
+					</div>
+					<button type="submit"
+						class="btn btn-<?= ($update) ? "warning" : "info" ?> btn-block">Simpan</button>
+					<?php if ($update): ?>
+					<a href="?page=pelanggan" class="btn btn-info btn-block">Batal</a>
+					<?php endif; ?>
+				</form>
+			</div>
+		</div>
 	</div>
 	<div class="col-md-8">
-	    <div class="panel panel-info">
-	        <div class="panel-heading"><h3 class="text-center">DAFTAR PELANGGAN</h3></div>
-	        <div class="panel-body">
-	            <table class="table table-condensed">
-	                <thead>
-	                    <tr>
-	                        <th>No</th>
-	                        <th>Nama</th>
-	                        <th>Telp</th>
-	                        <th>Email</th>
-	                        <th>Username</th>
-	                        <th>Alamat</th>
-	                        <th></th>
-	                        <th class="hidden-print"></th>
-	                    </tr>
-	                </thead>
-	                <tbody>
-	                    <?php $no = 1; ?>
-	                    <?php if ($query = $connection->query("SELECT * FROM pelanggan")): ?>
-	                        <?php while($row = $query->fetch_assoc()): ?>
-	                        <tr>
-	                            <td><?=$no++?></td>
-															<td><?=$row['nama']?></td>
-															<td><?=$row['no_telp']?></td>
-															<td><?=$row['email']?></td>
-															<td><?=$row['username']?></td>
-															<td><?=$row['alamat']?></td>
-	                            <td>
-	                            <td class="hidden-print">
-	                                <div class="btn-group">
-	                                    <a href="?page=pelanggan&action=update&key=<?=$row['id_pelanggan']?>" class="btn btn-warning btn-xs">Edit</a>
-	                                    <a href="?page=pelanggan&action=delete&key=<?=$row['id_pelanggan']?>" class="btn btn-danger btn-xs">Hapus</a>
-	                                </div>
-	                            </td>
-	                        </tr>
-	                        <?php endwhile ?>
-	                    <?php endif ?>
-	                </tbody>
-	            </table>
-	        </div>
-	        	<div class="panel-footer hidden-print">
-			        <a onClick="window.print();return false" class="btn btn-primary">Print</a>
-			    </div>
-	    </div>
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="text-center">DAFTAR PELANGGAN</h3>
+			</div>
+			<div class="panel-body">
+				<table class="table table-condensed">
+					<thead>
+						<tr>
+							<th>No</th>
+							<th>Nama</th>
+							<th>Telp</th>
+							<th>Email</th>
+							<th>Username</th>
+							<th>Alamat</th>
+							<th></th>
+							<th class="hidden-print"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php $no = 1; ?>
+						<?php if ($query = $connection->query("SELECT * FROM pelanggan")): ?>
+						<?php while($row = $query->fetch_assoc()): ?>
+						<tr>
+							<td><?=$no++?></td>
+							<td><?=$row['nama']?></td>
+							<td><?=$row['no_telp']?></td>
+							<td><?=$row['email']?></td>
+							<td><?=$row['username']?></td>
+							<td><?=$row['alamat']?></td>
+							<td>
+							<td class="hidden-print">
+								<div class="btn-group">
+									<a href="?page=pelanggan&action=update&key=<?=$row['id_pelanggan']?>"
+										class="btn btn-warning btn-xs">Edit</a>
+									<a href="?page=pelanggan&action=delete&key=<?=$row['id_pelanggan']?>"
+										class="btn btn-danger btn-xs">Hapus</a>
+								</div>
+							</td>
+						</tr>
+						<?php endwhile ?>
+						<?php endif ?>
+					</tbody>
+				</table>
+			</div>
+			<div class="panel-footer hidden-print">
+				<a onClick="window.print();return false" class="btn btn-primary">Print</a>
+			</div>
+		</div>
 	</div>
 </div>

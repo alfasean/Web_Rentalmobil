@@ -6,7 +6,10 @@
 			-15px -15px 30px #ffffff;
 		margin-top: 15px;
 	}
-	h4,h5,h6 {
+
+	h4,
+	h5,
+	h6 {
 		color: #000 !important;
 	}
 </style>
@@ -19,7 +22,7 @@
 				<img src="assets/img/mobil/<?=$row['gambar']?>" style="height:250px; padding: 20px; width:100%"
 					alt="<?=$row['gambar']?>">
 			</a>
-			<div class="caption text-center" style= "padding:5px;">
+			<div class="caption text-center" style="padding:5px;">
 				<h4><?=$row["nama_mobil"]?></h4>
 				<h5>Rp.<?=$row["harga"]?>,- <?=$row["nama"]?> - <?=$row["merk"]?></h5>
 				<h6><?=$row["no_mobil"]?></h6>
